@@ -1,7 +1,8 @@
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
     connect = require('gulp-connect'),
-    less = require('gulp-less');
+    less = require('gulp-less'),
+    pages = require('gulp-gh-pages');
 
 gulp.task('less', function() {
   gulp.src('app/less/*.less')
@@ -45,4 +46,11 @@ gulp.task('default', ['less', 'copy'], function() {
   });
 
   gulp.watch('app/**/*.*', ['less', 'copy', 'reload']);
+});
+
+gulp.task('deploy', ['less', 'copy'], function () {
+  var remoteUrl = 'git://github.com/mfunkie/presentations.git';
+
+  gulp.src("./deploy/**/*")
+      .pipe(pages(remoteUrl));
 });
