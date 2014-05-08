@@ -1,0 +1,36 @@
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+@bodyColor: #eeeeee;
+@headerColor: lighten(@bodyColor, 5%);
+
+#index {
+	background-color: @bodyColor;
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 1em;
+	.container {
+		border-radius: 5px;
+		box-shadow: 0 0 2px;
+		background-color: @headerColor;
+		max-width: 800px;
+		margin: 10% auto 0 auto;
+		padding: 25px 25px 25px 25px;
+		h2 {
+			text-align: center;
+		}
+		a {
+			text-decoration: none;
+			color: #EA6A20;
+			font-size: 1em;
+			transition: font-size 0.1s ease-in;
+			&:hover, &:active {
+				font-size: 1.2em;
+				text-decoration: underline;
+			}
+		}
+	}
+}
