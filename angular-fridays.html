@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Angular.js Bootcamp</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/zenburn.css">
+        <link rel="stylesheet" href="css/theme/sky.css" id="theme">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>Angular.js</h1>
+                    <h2>@markfunk</h2>
+                </section>
+                <section>
+                    <h2>Two way data-binding</h2>
+                    <h2>HTML is the template (expands vocabulary of HTML)</h2>
+                </section>
+                <section>
+                    <section>
+                        <h1>Declarative Syntax</h1>
+                    </section>
+                    <section>
+                        <h2>jQuery</h2>
+                        <pre><code>
+&lt;div class="myDiv"&gt;&lt;/div&gt;
+$('.myDiv').click(function() {
+    $('.myDiv').toggleClass('disabled');
+});
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Angular</h2>
+                        <pre><code>
+&lt;div ng-class=”{ disabled: !myDivIsEnabled }”
+ng-click=”myDivIsEnabled = !myDivIsEnabled&gt;&lt;/div&gt;
+
+                        </code></pre>
+                        <p>If myDiv is not enabling we know exactly where to look!</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>Directives</h1>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>Encapsulate DOM logic</li>
+                            <li>Where all the 'two-way binding' happens.</li>
+                            <li>Almost everything you see in an Angular template that isn't plain HTML is a directive.  ng-class, ng-repeat, ng-controller: ALL DIRECTIVES!  Even the script tag is a special directive used by Angular to find embedded templates.</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>Why Angular?</h1>
+                    </section>
+                    <section>
+                        <h2>Separation of Concerns</h2>
+                        <p>By splitting our code into templates, directives, controllers, and services, we make it easier to maintain and debug code over time.</p>
+                        <p alt="(I've found myself creating fewer bugs just because I can see all the possibilities of interaction as I'm building an application)">Prevents bugs.</p>  
+                        <!-- <h3>When debugging:</h3>
+                        <ul>
+                            <li>Have an issue with the data? It's probably in a Service or a Factory</li>
+                            <li>Have an issue with the way the data looks? It's probably in the view/template.</li>
+                            <li>Have an issue with the way the page interacts with the controller? It's probably in the controller</li>
+                            <li>There is a clear, traceable path of data from the server to the client.</li>
+                        </ul> -->
+                    </section>
+                    <section>
+                        <h2>Community</h2>
+                        <ul>
+                            <li>Tons of modules.</li>
+                            <li>Full support for Bootstrap.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <p>Angular is great for integration with existing applications.</p>
+                        <ul>
+                            <li>Co-exists with other patterns.</li>
+                            <li>Wraps jQuery plugins just fine.</li>
+                            <li>Scales well to many developers.</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <h1>Pattern Library</h1>
+                    <p>BoomTown has created our own <a href="http://boomtownroi.github.io/boomstrap/angular.html">Pattern Library</a> with components (directives) found on common pages to make feature development quicker.  The developer just needs to provide data to get a component that has already been laid out for them</p>
+                </section>
+                <!-- <section>
+                    <h1><a href="http://beta.virginamerica.com">Virgin America</a></h1>
+                </section> -->
+            </div>
+        </div>
+        <script src="js/reveal.min.js"></script>
+        <script src="js/head.min.js"></script>
+        <script type="text/javascript">
+
+            Reveal.initialize({
+                history: true,
+                backgroundTransition: 'slide',
+                dependencies: [
+                    // Syntax highlight for <code> elements
+                    {
+                        src: 'js/highlight/highlight.js',
+                        // async: true,
+                        callback: function() {
+                            hljs.initHighlightingOnLoad();
+                        }
+                    }
+                ]
+            });
+        </script>
+    </body>
+</html>
