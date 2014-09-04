@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>React.js</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/zenburn.css">
+        <link rel="stylesheet" href="css/theme/sky.css" id="theme">
+        <link rel="stylesheet" href="css/react.css" id="theme">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>React.js</h1>
+                    <h2>The Virtual DOM, and why State is <span class="underline">Evil</span></h2>
+                </section>
+                <section>
+                    <h2>React</h2>
+                    <h2>A Javascript Library for Building User Interfaces</h2>
+                </section>
+                <section>
+                    <section>
+                        <h1>Party like it's 1999</h1>
+                    </section>
+                    <section>
+                        <p>Before the web became dynamic, we would build pages in a pure way.  State wasn't a concern.</p>
+                        <p>Then Javascript and AJAX came along and frakked it all up.</p>
+                    </section>
+                    <section>
+                        <h2>Why React?</h2>
+                        <p>React was built to solve one problem: building large applications with data that changes over time. To do this, React uses two main ideas.</p>
+                    </section>
+                    <section>
+                        <h2>Simple</h2>
+                        <p>Simply express how your app should look at any given point in time, and React will automatically manage all UI updates when your underlying data changes.</p>
+                    </section>
+                    <section>
+                        <h2>Declarative</h2>
+                        <p>When the data changes, React conceptually hits the "refresh" button, and knows to only update the changed parts.</p>
+                    </section>
+                    <section>
+                        <h3>The web can be pure</h3>
+                        <p>If you build your components properly, you can always tell what the state of an element is given its input.  Debugging becomes so much simpler.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>The Virtual DOM</h1>
+                    </section>
+                    <section>
+                        <h2>The real DOM is slooooow</h2>
+                        <p>There are dozens and dozens of potential attributes on a div element (used for transitionary states and more).  If you were to iterate them all, you would have a serious performance hit.</p>
+                    </section>
+                    <section>
+                        <p>React builds a tree of all the elements it controls, combined with a smart diffing algorithm, only the updates that are needed happen, and they happen in batch in a single requestAnimationFrame call.</p>
+                    </section>
+                    <section>
+                        <h2>The real DOM is stateful.</h2>
+                        <p>Keeping track of all of the attributes is on an HTML element is a pain.  Two-way data binding is one way to solve it.  The real problem there is who is allowed to update those bindings.  The changes really could come from anywhere.</p>
+                        <p>Because the DOM is stateful, you often have to read from and write to these properties often which can be very slow if you don't know a lot about reflow and repaint.</p>
+                    </section>
+                    <section>
+                        <p>The Virtual DOM will only re-render and diff on a state change.  If a given state changes on a component (via setState), only that tree will re-render, and React will re-use every DOM element it can.</p>
+                    </section>
+                </section>
+                <section>
+                    <h1>React vs Angular</h1>
+                </section>
+                <section>
+                    <section>
+                        <h1>Angular</h1>
+                    </section>
+                    <section>
+                        <h2>Angular is amazing.</h2>
+                        <p>Declarative templates!  Dependency Injection!  Separation of Concerns through code!  No more spaghetti jQuery all over!</p>
+                    </section>
+                    <section>
+                        <h2>Angular is horrible.</h2>
+                        <p>Who changed this variable on the scope?  I don't see it in the controller.  Oh, it's in a parent controller.  Hmm, the parent controller seems to be linked to a service.  Oh, it's in a service?  Where all did I inject that?</p>
+                        <p>What the hell is isolate scope? Compile function? Linking function? What?</p>
+                        <p>Angular is just full of state that can be updated from anywhere.</p>
+                    </section>
+                    <section>
+                        <h2>Angular *can* be slow.</h2>
+                        <p>Dirty checking is, well, dirty.  If you have more than 2000 data-bindings on your page, performance can really slow to a halt.  DOM elements are readily created and destroyed which leads to poor performance when adding or removing several in a construct like a list or table*</p>
+                    </section>
+                    <section>
+                        <p>If everything was a directive in Angular, life would be easier.</p>
+                        <p>The problem is, no one writes directives.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>React</h1>
+                    </section>
+                    <section>
+                        <h2>Turtles all the way down</h2>
+                        <p>Everything in React is a 'directive', or component in React vernacular.  React is just components composed of components composed of components.</p>
+                        <p>Every component can have props (what's passed in), and state (what it contains).  If either of these change, the render function is called.</p>
+                    </section>
+                    <section>
+                        <h2>A lot less to learn</h2>
+                        <p>There's only a few functions to learn with React.  You can get by with knowing just 'render' if you don't care a bunch about performance or don't need to integrate third party plugins.  Certain properties of a Component like 'PropTypes' are actively beneficial in discerning what your input is.</p>
+                    </section>
+                    <section>
+                        <h2>It's just Javascript</h2>
+                        <p>There's no crazy ng-repeat syntax to learn, no filters syntax to look up every time.  You don't need to know the intricacies of $compile or $parse or the ngModel controller functions like $parsers or $formatters.</p>
+                    </section>
+                    <section>
+                        <h2>Performant by default</h2>
+                    </section>
+                    <section>
+                        <p>You're not directly reading from the DOM, so you don't have to worry about accidentally causing a reflow because you tried to read an element's property at the wrong time.</p>
+                    </section>
+                    <section>
+                        <p>React's diffing is smart enough to reuse elements, and when it needs help you just provide a key to an element and the diffing is that much faster.</p>
+                    </section>
+                    <section>
+                        <p>React has great performance tools that point out the critical parts that are causing your app to be slow.  If it becomes an issue where an entire tree is updating and you only need to update one path in the tree, simply implementing a 'shouldComponentUpdate' on the root of the tree you don't want to update will cause performance to leap.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Example</h2>
+                        <p data-height="600" data-theme-id="5592" data-slug-hash="BnzKx" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/mfunkie/pen/BnzKx/'>React To-Do List JSX</a> by Mark Funk (<a href='http://codepen.io/mfunkie'>@mfunkie</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//codepen.io/assets/embed/ei.js"></script>
+                    </section>
+                    <section>
+                        <h2>HTML in Javascript? What the frak?</h2>
+                    </section>
+                    <section>
+                        <p>It's not as dangerous as you might think.  These elements you see in your Javascript aren't pure html, but rather a representation of what they should be.  This information is provided to the Virtual DOM.</p>
+                        <p>You don't even have to use JSX, it's just sugar.</p>
+                    </section>
+                    <section>
+                        <h2>Separation of Concerns</h2>
+                        <p>How many times have you <span class="underline">really</span> re-used a template without bringing the javascript along with it?  Components and their mutating functions living with the rendering of the component just makes sense.  Every component is only concerned with itself.</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>Takeaways</h1>
+                    </section>
+                    <section>
+                        <h2>Angular can be good</h2>
+                        <p>Build Angular with as much directives as possible.  Build directives composed of other directives.  Think Composition.  Learn *deep* Angular.  When using ng-repeat always use track by to re-use DOM elements instead of destroying and recreating.</p>
+                    </section>
+                    <section>
+                        <h2>Minimize state</h2>
+                        <p>Build components that are predictable.  Try to use state as little as possible.  Don't let something outside of your component mutate your components state unless it's in an obvious way.</p>
+                    </section>
+                    <section>
+                        <h2>Read up on web performance</h2>
+                        <p>React is good in solving some problems for you with the Virtual DOM, but we don't use it.  Read up on Reflow and Repaint, and the CSS properties that can cause it.  Batch reads from the DOM before writes and don't intersperse.  You could be causing performance issues without even knowing it!</p>
+                    </section>
+                </section>
+                <section>
+                    <h2>Give it five minutes.</h2>
+                    <p>Read the docs, play around with it.</p>
+                    <p>React is already in use by the entirety of Instagram online.  All new Facebook front-end development is done in React.  Both Khan Academy and New York Times are using React for new development, especially in performance critical areas.</p>
+                </section>
+            </div>
+        </div>
+        <script src="js/reveal.min.js"></script>
+        <script src="js/head.min.js"></script>
+        <script type="text/javascript">
+
+            Reveal.initialize({
+                history: true,
+                backgroundTransition: 'slide',
+                dependencies: [
+                    // Syntax highlight for <code> elements
+                    {
+                        src: 'js/highlight/highlight.js',
+                        // async: true,
+                        callback: function() {
+                            hljs.initHighlightingOnLoad();
+                        }
+                    }
+                ]
+            });
+        </script>
+    </body>
+</html>
