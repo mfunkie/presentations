@@ -1,3 +1,60 @@
 .underline {
   text-decoration: underline;
 }
+.title-slide .title-slide-sub {
+  padding-top: 30px;
+}
+.reveal {
+  background-color: #3B5999;
+}
+.reveal h1 {
+  font-size: 10em;
+}
+.reveal h2 {
+  font-size: 5em;
+}
+.reveal h3 {
+  font-size: 2.21em;
+}
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h5 {
+  color: #FFFFFF;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+.slides section {
+  color: #FFFFFF;
+}
+.slides section h1 + p,
+.slides section h2 + p,
+.slides section h3 + p,
+.slides section h4 + p,
+.slides section h4 + p {
+  padding-top: 30px;
+}
+.slides section p {
+  text-align: center;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 2em;
+}
+aside.controls .navigate-left .border-left-color,
+aside.controls .navigate-right .border-left-color,
+aside.controls .navigate-up .border-left-color,
+aside.controls .navigate-down .border-left-color,
+aside.controls .navigate-left .border-right-color,
+aside.controls .navigate-right .border-right-color,
+aside.controls .navigate-up .border-right-color,
+aside.controls .navigate-down .border-right-color,
+aside.controls .navigate-left .border-up-color,
+aside.controls .navigate-right .border-up-color,
+aside.controls .navigate-up .border-up-color,
+aside.controls .navigate-down .border-up-color,
+aside.controls .navigate-left .border-down-color,
+aside.controls .navigate-right .border-down-color,
+aside.controls .navigate-up .border-down-color,
+aside.controls .navigate-down .border-down-color {
+  background-color: #6D85B5;
+}
