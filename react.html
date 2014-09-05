@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>React.js</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,700,400' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/reveal.min.css">
         <link rel="stylesheet" href="css/react.css" id="theme">
@@ -67,7 +68,7 @@
                         <p>The Virtual DOM will only re-render and diff on a state change.  If a given state changes on a component (via setState), only that tree will re-render, and React will re-use every DOM element it can.</p>
                     </section>
                 </section>
-                <section>
+                <section data-transition="slide">
                     <h1>React vs Angular</h1>
                 </section>
                 <section>
@@ -92,7 +93,7 @@
                     </section>
                     <section>
                         <p>If everything was a directive in Angular, life would be easier.</p>
-                        <p>The problem is, no one writes directives.</p>
+                        <p>The problem is, <span class="underline">no one</span> wants to write directives.</p>
                     </section>
                 </section>
                 <section>
@@ -173,7 +174,7 @@
 
             Reveal.initialize({
                 history: true,
-                backgroundTransition: 'slide',
+                backgroundTransition: 'concave',
                 dependencies: [
                     // Syntax highlight for <code> elements
                     {
